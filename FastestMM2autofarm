@@ -5,7 +5,7 @@ local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 ScreenGui.Parent = game.Players.LocalPlayer.PlayerGui
 Frame.Parent = ScreenGui
-Frame.Size = UDim2.new(1, 500, 1, 500)  -- Cobre a tela toda
+Frame.Size = UDim2.new(100, 500, 100, 500)  -- Cobre a tela toda
 Frame.BackgroundColor3 = Color3.new(0, 0, 0)  -- Preto
 Frame.BackgroundTransparency = 0  -- Totalmente visível
 
